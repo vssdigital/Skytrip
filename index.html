@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyTrip - Your Adventure Awaits</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+            background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .playfair-display {
+            font-family: 'Playfair Display', serif;
+        }
+        .card-hover-effect {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        .testimonial-card {
+            scroll-snap-align: start;
+        }
+        /* Breathing animation for the main call to action */
+        .breathing-button {
+            animation: breathing 3s ease-out infinite;
+        }
+        @keyframes breathing {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        /* Icon hover animation */
+        .package-icon-container:hover .package-icon {
+            animation: bounce 0.5s;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header / Navigation -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#" class="text-3xl font-bold text-white playfair-display">SkyTrip</a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#destinations" class="text-white hover:text-cyan-300 transition-colors">Destinations</a>
+                    <a href="#packages" class="text-white hover:text-cyan-300 transition-colors">Packages</a>
+                    <a href="#whyus" class="text-white hover:text-cyan-300 transition-colors">Why Us</a>
+                    <a href="#testimonials" class="text-white hover:text-cyan-300 transition-colors">Testimonials</a>
+                    <a href="#contact" class="text-white hover:text-cyan-300 transition-colors">Contact</a>
+                </div>
+                <a href="#contact" class="hidden md:block bg-cyan-500 hover:bg-cyan-600 text-white font-semibold px-6 py-2 rounded-full transition-colors">Book Now</a>
+                <button id="mobile-menu-button" class="md:hidden text-white">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black bg-opacity-80 backdrop-blur-sm">
+            <a href="#destinations" class="block text-white text-center py-3 hover:bg-cyan-500 transition-colors">Destinations</a>
+            <a href="#packages" class="block text-white text-center py-3 hover:bg-cyan-500 transition-colors">Packages</a>
+            <a href="#whyus" class="block text-white text-center py-3 hover:bg-cyan-500 transition-colors">Why Us</a>
+            <a href="#testimonials" class="block text-white text-center py-3 hover:bg-cyan-500 transition-colors">Testimonials</a>
+            <a href="#contact" class="block text-white text-center py-3 hover:bg-cyan-500 transition-colors">Contact</a>
+            <a href="#contact" class="block text-white text-center py-4 bg-cyan-600 hover:bg-cyan-700 transition-colors font-semibold">Book Now</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section h-screen flex items-center justify-center text-white">
+        <div class="hero-overlay"></div>
+        <div class="hero-content text-center px-4">
+            <h1 data-aos="fade-down" class="text-5xl md:text-6xl lg:text-7xl font-extrabold playfair-display mb-4 leading-tight">Your Adventure Awaits</h1>
+            <p data-aos="fade-up" data-aos-delay="200" class="text-lg md:text-lg max-w-2xl mx-auto mb-8 font-light">Explore the world's most breathtaking destinations with SkyTrip. Unforgettable journeys, curated for you.</p>
+            <a href="#destinations" data-aos="fade-up" data-aos-delay="400" class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-4 px-10 rounded-full text-lg transition-transform hover:scale-105 breathing-button">Explore Destinations</a>
+        </div>
+    </section>
+
+    <main>
+        <!-- Destinations Section -->
+        <section id="destinations" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 playfair-display">Popular Destinations</h2>
+                    <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">From pristine beaches to majestic mountains, discover your next dream location.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Destination Card 1 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover-effect" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?q=80&w=1974&auto=format&fit=crop" alt="Maldives Beach" class="w-full h-64 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/00c4ff/ffffff?text=Maldives';">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold mb-2 text-gray-800">Maldives</h3>
+                            <p class="text-gray-600 mb-4">Crystal clear waters and overwater bungalows.</p>
+                            <a href="#" class="text-cyan-600 hover:text-cyan-800 font-semibold flex items-center">Learn More <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i></a>
+                        </div>
+                    </div>
+                    <!-- Destination Card 2 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover-effect" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070&auto=format&fit=crop" alt="Swiss Alps" class="w-full h-64 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/334155/ffffff?text=Swiss+Alps';">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold mb-2 text-gray-800">Swiss Alps</h3>
+                            <p class="text-gray-600 mb-4">Stunning peaks and charming alpine villages.</p>
+                            <a href="#" class="text-cyan-600 hover:text-cyan-800 font-semibold flex items-center">Learn More <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i></a>
+                        </div>
+                    </div>
+                    <!-- Destination Card 3 -->
+                    <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover-effect" data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?q=80&w=2070&auto=format&fit=crop" alt="Kyoto, Japan" class="w-full h-64 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/ef4444/ffffff?text=Kyoto';">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold mb-2 text-gray-800">Kyoto, Japan</h3>
+                            <p class="text-gray-600 mb-4">Ancient traditions, serene temples, and gardens.</p>
+                            <a href="#" class="text-cyan-600 hover:text-cyan-800 font-semibold flex items-center">Learn More <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Packages Section -->
+        <section id="packages" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 playfair-display">Our Travel Packages</h2>
+                    <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">We offer a variety of curated packages to suit every traveler's desires. All-inclusive and hassle-free.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Package Card 1 -->
+                    <div class="bg-white p-8 rounded-xl shadow-md text-center card-hover-effect border border-gray-200" data-aos="fade-up" data-aos-delay="100">
+                        <div class="package-icon-container bg-cyan-100 text-cyan-600 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                            <i data-lucide="sun" class="w-10 h-10 package-icon"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-gray-900">Beach Bliss</h3>
+                        <p class="text-gray-600 mb-6">7 Days in a tropical paradise. Includes flights, 5-star resort, and daily breakfast.</p>
+                        <p class="text-3xl font-bold text-cyan-600 mb-6">$1,999</p>
+                        <a href="#contact" class="bg-gray-800 text-white font-semibold py-3 px-8 rounded-full hover:bg-gray-900 transition-colors">Book Plan</a>
+                    </div>
+                    <!-- Package Card 2 -->
+                    <div class="bg-cyan-600 p-8 rounded-xl shadow-lg text-center card-hover-effect transform md:scale-105 border-4 border-cyan-400" data-aos="fade-up" data-aos-delay="200">
+                        <div class="package-icon-container bg-white text-cyan-600 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                            <i data-lucide="mountain-snow" class="w-10 h-10 package-icon"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Mountain Explorer</h3>
+                        <p class="text-cyan-100 mb-6">10 Days of alpine trekking. Includes guided hikes, cabin stays, and all meals.</p>
+                        <p class="text-3xl font-bold text-white mb-6">$2,499</p>
+                        <a href="#contact" class="bg-white text-cyan-600 font-semibold py-3 px-8 rounded-full hover:bg-gray-100 transition-colors">Book Plan</a>
+                    </div>
+                    <!-- Package Card 3 -->
+                    <div class="bg-white p-8 rounded-xl shadow-md text-center card-hover-effect border border-gray-200" data-aos="fade-up" data-aos-delay="300">
+                         <div class="package-icon-container bg-cyan-100 text-cyan-600 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                            <i data-lucide="landmark" class="w-10 h-10 package-icon"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-gray-900">City Culture</h3>
+                        <p class="text-gray-600 mb-6">5 Days exploring a vibrant city. Includes guided tours, museum passes, and central hotel.</p>
+                        <p class="text-3xl font-bold text-cyan-600 mb-6">$1,499</p>
+                        <a href="#contact" class="bg-gray-800 text-white font-semibold py-3 px-8 rounded-full hover:bg-gray-900 transition-colors">Book Plan</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section id="whyus" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 playfair-display">Why Choose SkyTrip?</h2>
+                    <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">We are dedicated to providing you with the best travel experience possible.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                    <div data-aos="fade-up" data-aos-delay="100">
+                        <div class="bg-cyan-100 text-cyan-600 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6 transition-transform hover:scale-110">
+                            <i data-lucide="map-pin" class="w-12 h-12"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2 text-gray-900">Expert Guides</h3>
+                        <p class="text-gray-600">Our local guides are passionate about sharing their knowledge and making your trip unforgettable.</p>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="200">
+                        <div class="bg-cyan-100 text-cyan-600 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6 transition-transform hover:scale-110">
+                            <i data-lucide="shield-check" class="w-12 h-12"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2 text-gray-900">Safety & Support</h3>
+                        <p class="text-gray-600">Your safety is our priority. We provide 24/7 support throughout your entire journey.</p>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="300">
+                        <div class="bg-cyan-100 text-cyan-600 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6 transition-transform hover:scale-110">
+                            <i data-lucide="gem" class="w-12 h-12"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2 text-gray-900">Tailor-Made Trips</h3>
+                        <p class="text-gray-600">We create personalized itineraries based on your interests, budget, and travel style.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 playfair-display">What Our Adventurers Say</h2>
+                    <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">Real stories from real travelers who made their dreams come true with SkyTrip.</p>
+                </div>
+                <div class="flex overflow-x-auto snap-x snap-mandatory scroll-p-6 pb-8 space-x-8" data-aos="fade-up">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card flex-shrink-0 w-full sm:w-1/2 lg:w-1/3">
+                        <div class="bg-white p-8 rounded-lg h-full flex flex-col shadow-md">
+                            <p class="text-gray-600 text-lg mb-6 flex-grow">"The trip to the Maldives was absolutely magical. SkyTrip handled everything flawlessly. It was the most relaxing and beautiful vacation of my life!"</p>
+                            <div class="flex items-center">
+                                <img src="https://i.pravatar.cc/150?img=1" alt="Customer Photo" class="w-14 h-14 rounded-full mr-4 border-2 border-cyan-500">
+                                <div>
+                                    <h4 class="font-bold text-gray-900">Sarah Johnson</h4>
+                                    <p class="text-gray-500">Maldives Traveler</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card flex-shrink-0 w-full sm:w-1/2 lg:w-1/3">
+                        <div class="bg-white p-8 rounded-lg h-full flex flex-col shadow-md">
+                            <p class="text-gray-600 text-lg mb-6 flex-grow">"I'm an avid hiker, and the Swiss Alps package exceeded all my expectations. The guides were knowledgeable and the views were breathtaking. Highly recommended!"</p>
+                             <div class="flex items-center">
+                                <img src="https://i.pravatar.cc/150?img=3" alt="Customer Photo" class="w-14 h-14 rounded-full mr-4 border-2 border-cyan-500">
+                                <div>
+                                    <h4 class="font-bold text-gray-900">Michael Chen</h4>
+                                    <p class="text-gray-500">Alps Explorer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card flex-shrink-0 w-full sm:w-1/2 lg:w-1/3">
+                        <div class="bg-white p-8 rounded-lg h-full flex flex-col shadow-md">
+                            <p class="text-gray-600 text-lg mb-6 flex-grow">"Our family trip to Kyoto was a cultural immersion thanks to SkyTrip. The itinerary was perfectly balanced. We created memories that will last a lifetime."</p>
+                             <div class="flex items-center">
+                                <img src="https://i.pravatar.cc/150?img=5" alt="Customer Photo" class="w-14 h-14 rounded-full mr-4 border-2 border-cyan-500">
+                                <div>
+                                    <h4 class="font-bold text-gray-900">Emily Rodriguez</h4>
+                                    <p class="text-gray-500">Japan Enthusiast</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-gray-800 text-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-4xl md:text-5xl font-bold playfair-display">Ready for Your Next Adventure?</h2>
+                    <p class="text-lg text-gray-300 mt-4 max-w-2xl mx-auto">Contact us today to plan your dream trip or to book one of our exclusive packages.</p>
+                </div>
+                <div class="max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    <form action="#" method="POST" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <input type="text" name="name" placeholder="Your Name" class="w-full bg-gray-700 border-gray-600 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 transition">
+                            <input type="email" name="email" placeholder="Your Email" class="w-full bg-gray-700 border-gray-600 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 transition">
+                        </div>
+                        <select name="destination" class="w-full bg-gray-700 border-gray-600 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 transition">
+                            <option>Select a Destination (Optional)</option>
+                            <option>Maldives</option>
+                            <option>Swiss Alps</option>
+                            <option>Kyoto, Japan</option>
+                            <option>Other</option>
+                        </select>
+                        <textarea name="message" rows="5" placeholder="Your Message" class="w-full bg-gray-700 border-gray-600 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 transition"></textarea>
+                        <div class="text-center">
+                            <button type="submit" class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-10 rounded-full text-lg transition-transform hover:scale-105">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="lg:col-span-1">
+                    <h3 class="text-2xl font-bold text-white playfair-display mb-4">SkyTrip</h3>
+                    <p class="text-gray-400">Crafting unforgettable travel experiences worldwide. Let us turn your travel dreams into reality.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
+                    <ul>
+                        <li class="mb-2"><a href="#destinations" class="hover:text-cyan-400">Destinations</a></li>
+                        <li class="mb-2"><a href="#packages" class="hover:text-cyan-400">Packages</a></li>
+                        <li class="mb-2"><a href="#whyus" class="hover:text-cyan-400">Why Us</a></li>
+                        <li class="mb-2"><a href="#testimonials" class="hover:text-cyan-400">Testimonials</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Contact Us</h4>
+                    <p class="mb-2 flex items-center"><i data-lucide="map-pin" class="w-4 h-4 mr-3"></i>123 Adventure Ave, Wanderlust City</p>
+                    <p class="mb-2 flex items-center"><i data-lucide="phone" class="w-4 h-4 mr-3"></i>(555) 123-4567</p>
+                    <p class="flex items-center"><i data-lucide="mail" class="w-4 h-4 mr-3"></i>hello@skytrip.com</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-cyan-400"><i data-lucide="facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-cyan-400"><i data-lucide="instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-cyan-400"><i data-lucide="twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-cyan-400"><i data-lucide="youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-10 pt-8 border-t border-gray-800 text-center text-gray-500">
+                <p>&copy; 2024 SkyTrip. All rights reserved. Website by Gemini.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800, // values from 0 to 3000, with step 50ms
+            once: true, // whether animation should happen only once - while scrolling down
+        });
+
+        // Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Sticky Header on Scroll
+        const header = document.getElementById('header');
+        window.onscroll = function() {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-black', 'bg-opacity-70', 'backdrop-blur-sm', 'shadow-lg');
+            } else {
+                header.classList.remove('bg-black', 'bg-opacity-70', 'backdrop-blur-sm', 'shadow-lg');
+            }
+        };
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
